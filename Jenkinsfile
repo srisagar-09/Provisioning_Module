@@ -1,16 +1,24 @@
 pipeline{
     agent any
+    environment{
+        a = "Devops Engineer"
+        b = "Cloud Engineer"
+    }
     stages{
-        stage('Build'){
-            options{
-                retry(3)
+        stage('Career options'){
+            environment{
+                c = "Java Developer"
             }
+            Steps{
+                echo "${a}"
+                echo "${b}"
+                echo "${c}"
+            }
+        }
+        Stage ('Career'){
             steps{
-                echo "Before Setting Current Build to Failure"
-                script{
-                    currentBuild.result = 'FAILURE'
-                }
-                 echo "After Setting Current Build to Failure"
+              echo "${a}"
+              echo "${b}"  
             }
         }
     }
