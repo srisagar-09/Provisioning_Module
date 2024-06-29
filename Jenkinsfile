@@ -9,16 +9,17 @@ pipeline{
             environment{
                 c = "Java Developer"
             }
-            Steps{
+            steps{
                 echo "${a}"
                 echo "${b}"
                 echo "${c}"
             }
         }
-        Stage ('Career'){
+        stage ('Career'){
             steps{
               echo "${a}"
               echo "${b}"  
+              echo "${c}"
             }
         }
     }
