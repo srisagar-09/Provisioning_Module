@@ -19,7 +19,6 @@ pipeline{
             steps{
               echo "${a}"
               echo "${b}"  
-              echo "${c}"
             }
         }
     }
