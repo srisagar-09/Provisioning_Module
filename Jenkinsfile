@@ -1,24 +1,18 @@
-pipeline{
-    agent any
-    environment{
-        a = "Devops Engineer"
-        b = "Cloud Engineer"
-    }
-    stages{
-        stage('Career options'){
-            environment{
-                c = "Java Developer"
-            }
-            steps{
-                echo "${a}"
-                echo "${b}"
-                echo "${c}"
+pipeline {
+    agent any 
+    stages {
+        stage ('DepoyToDev') {
+            steps {
+                echo "Deploying to Dev Environment"
             }
         }
-        stage ('Career'){
-            steps{
-              echo "${a}"
-              echo "${b}"  
+        stage ('ProdDeploy') {
+            when {
+                // brnach condition
+                expression { BRANCH_NAME ==~ /(production|staging)/ }
+            }
+            steps {
+                echo "Deploying to production"
             }
         }
     }
